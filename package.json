@@ -1,0 +1,24 @@
+{
+    "name": "simply-store",
+    "version": "0.0.1",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "license": "MIT",
+    "scripts": {
+        "test": "ts-mocha -p tsconfig.json test/**/*.ts",
+        "build": "rm -rf ./build && tsc -p tsconfig.json"
+    },
+    "devDependencies": {
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^11.13.8",
+        "mocha": "^6.1.4",
+        "ts-mocha": "^6.0.0",
+        "ts-node": "^8.1.0",
+        "tslint": "^5.16.0",
+        "tslint-config-airbnb": "^5.11.1",
+        "typescript": "^3.4.5"
+    },
+    "dependencies": {
+        "nodekell": "^1.3.14"
+    }
+}
