@@ -1,18 +1,21 @@
 import * as fs from 'fs';
-import * as assert from 'assert';
+import { assert } from 'chai';
 import { createStore } from '../src';
 
 describe('createStore', () => {
 	let store: ReturnType<typeof createStore>;
 
 	before('create store', () => {
-		store = createStore('./storetest.json');
+		store = createStore('./test/store/storetest0.json');
 	});
 
 	it('initialize', async () => {
 		await store.initialize();
 
-		const res = await fs.promises.readFile('./storetest.json', 'utf8');
+		const res = await fs.promises.readFile(
+			'./test/store/storetest0.json',
+			'utf8',
+		);
 
 		assert.deepStrictEqual(JSON.parse(res), {});
 	});
@@ -27,6 +30,7 @@ describe('createStore', () => {
 	});
 
 	after('end test, remove test file', async () => {
-		await fs.promises.unlink('./storetest.json');
+		await fs.promises.unlink('./test/store/storetest0.json');
+		await fs.promises.rmdir('./test/store');
 	});
 });
