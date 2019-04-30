@@ -1,0 +1,7 @@
+langauge: node_js
+node_js:
+    - '10'
+    - '12'
+
+before_install:
+    - npm install -D mocha ts-mocha ts-node @types/mocha @types/node typescript
