@@ -5,3 +5,4 @@ yarn*
 npm*
 package-lock.json
 .vscode/
+test.ts

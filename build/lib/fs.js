@@ -9,10 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
+const mkdirpcb = require("mkdirp");
+const util_1 = require("util");
 exports.pathExists = (p) => fs.promises
     .access(p)
     .then(() => true)
     .catch(() => false);
+exports.mkdirp = util_1.promisify(mkdirpcb);
 exports.readFile = (p, encoding) => new Promise((resolve, reject) => {
     let res = '';
     const rs = fs.createReadStream(p, encoding);

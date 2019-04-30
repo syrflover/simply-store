@@ -1,6 +1,6 @@
 {
     "name": "simply-store",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "build/index.js",
     "types": "build/index.d.ts",
     "license": "MIT",
@@ -9,13 +9,19 @@
         "build": "rm -rf ./build && tsc -p tsconfig.json"
     },
     "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mkdirp": "^0.5.2",
         "@types/mocha": "^5.2.6",
         "@types/node": "^11.13.8",
+        "chai": "^4.2.0",
         "mocha": "^6.1.4",
         "ts-mocha": "^6.0.0",
         "ts-node": "^8.1.0",
         "tslint": "^5.16.0",
         "tslint-config-airbnb": "^5.11.1",
         "typescript": "^3.4.5"
+    },
+    "dependencies": {
+        "mkdirp": "^0.5.1"
     }
 }

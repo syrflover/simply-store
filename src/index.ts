@@ -1,10 +1,12 @@
-import { readFile, writeFile, pathExists } from './lib/fs';
+import * as path from 'path';
+import { readFile, writeFile, pathExists, mkdirp } from './lib/fs';
 import { stringifyJSON, parseJSON } from './lib/json';
 
 export { readFile, writeFile, pathExists };
 
 const initialize = (filePath: string) => async () => {
 	if (!(await pathExists(filePath))) {
+		await mkdirp(path.dirname(filePath));
 		await write(filePath)({});
 	}
 };
@@ -27,8 +29,11 @@ const write = <T = any>(filePath: string) => async (
 	return res;
 };
 
-export const createStore = <T = any>(filePath: string) => ({
-	initialize: initialize(filePath),
-	read: read<T>(filePath),
-	write: write<T>(filePath),
-});
+export const createStore = <T = any>(filePath: string) => {
+	const rp = path.resolve(filePath);
+	return {
+		initialize: initialize(rp),
+		read: read<T>(rp),
+		write: write<T>(rp),
+	};
+};

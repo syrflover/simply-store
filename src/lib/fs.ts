@@ -1,10 +1,14 @@
 import * as fs from 'fs';
+import * as mkdirpcb from 'mkdirp';
+import { promisify } from 'util';
 
 export const pathExists = (p: string): Promise<boolean> =>
 	fs.promises
 		.access(p)
 		.then(() => true)
 		.catch(() => false);
+
+export const mkdirp = promisify(mkdirpcb);
 
 export const readFile = (p: string, encoding: string): Promise<string> =>
 	new Promise((resolve, reject) => {

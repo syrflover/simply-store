@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const F = require("nodekell");
+const path = require("path");
 const fs_1 = require("./lib/fs");
 exports.readFile = fs_1.readFile;
 exports.writeFile = fs_1.writeFile;
@@ -16,7 +16,8 @@ exports.pathExists = fs_1.pathExists;
 const json_1 = require("./lib/json");
 const initialize = (filePath) => () => __awaiter(this, void 0, void 0, function* () {
     if (!(yield fs_1.pathExists(filePath))) {
-        yield write(filePath, {});
+        yield fs_1.mkdirp(path.dirname(filePath));
+        yield write(filePath)({});
     }
 });
 const read = (filePath) => () => __awaiter(this, void 0, void 0, function* () {
@@ -24,14 +25,17 @@ const read = (filePath) => () => __awaiter(this, void 0, void 0, function* () {
     const res = yield json_1.parseJSON(data);
     return res;
 });
-const write = F.curry((filePath, data) => __awaiter(this, void 0, void 0, function* () {
+const write = (filePath) => (data) => __awaiter(this, void 0, void 0, function* () {
     const stringified = yield json_1.stringifyJSON(data);
     const res = fs_1.writeFile(filePath, stringified, 'utf8');
     return res;
-}));
-exports.createStore = (filePath) => ({
-    initialize: initialize(filePath),
-    read: read(filePath),
-    write: write(filePath),
 });
+exports.createStore = (filePath) => {
+    const rp = path.resolve(filePath);
+    return {
+        initialize: initialize(rp),
+        read: read(rp),
+        write: write(rp),
+    };
+};
 //# sourceMappingURL=index.js.map
