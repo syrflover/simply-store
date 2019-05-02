@@ -33,6 +33,11 @@ const write = (filePath) => (data) => __awaiter(this, void 0, void 0, function* 
 exports.createStore = (filePath) => {
     const rp = path.resolve(filePath);
     return {
+        /**
+         * if not exists store file, initialize store with init value
+         *
+         * @param {object} [init={}] - some json
+         */
         initialize: initialize(rp),
         read: read(rp),
         write: write(rp),

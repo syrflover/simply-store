@@ -11,7 +11,8 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "moduleResolution": "node",
-        "declaration": true
+        "declaration": true,
+        "removeComments": false
     },
     "include": ["src/**/*.ts"]
 }
