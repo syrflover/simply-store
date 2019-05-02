@@ -20,10 +20,10 @@ const store = createStore('./store.json');
 const store = createStore<SomeObjectType>('./store.json');
 
 store
-    .initialize()
+    .initialize({ init: 'init' }) // if not exists store file, initialize store with init value
     .then(async () => {
         const read0 = await store.read();
-        // {}
+        // { init: 'init' }
 
         // overwrite the store
         await store.write({ user: [{ id: 1, name: 'syr' }] });

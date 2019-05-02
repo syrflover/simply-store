@@ -32,6 +32,11 @@ const write = <T = any>(filePath: string) => async (
 export const createStore = <T extends object = any>(filePath: string) => {
 	const rp = path.resolve(filePath);
 	return {
+		/**
+         * if not exists store file, initialize store with init value
+         *
+         * @param {object} [init={}] - some json
+         */
 		initialize: initialize<T>(rp),
 		read: read<T>(rp),
 		write: write<T>(rp),
