@@ -21,7 +21,7 @@
         "tslint-config-airbnb": "^5.11.1",
         "typescript": "^3.4.5"
     },
-    "dependencies": {
+    "peerDependencies": {
         "mkdirp": "^0.5.1"
     }
 }
