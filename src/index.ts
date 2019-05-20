@@ -2,7 +2,7 @@ import * as path from 'path';
 import { readFile, writeFile, pathExists, mkdirp } from './lib/fs';
 import { stringifyJSON, parseJSON } from './lib/json';
 
-export { readFile, writeFile, pathExists };
+export { readFile, writeFile, pathExists, stringifyJSON, parseJSON };
 
 const initialize = <T = any>(filePath: string) => async (init?: T) => {
 	if (!(await pathExists(filePath))) {
