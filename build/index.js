@@ -14,6 +14,8 @@ exports.readFile = fs_1.readFile;
 exports.writeFile = fs_1.writeFile;
 exports.pathExists = fs_1.pathExists;
 const json_1 = require("./lib/json");
+exports.stringifyJSON = json_1.stringifyJSON;
+exports.parseJSON = json_1.parseJSON;
 const initialize = (filePath) => (init) => __awaiter(this, void 0, void 0, function* () {
     if (!(yield fs_1.pathExists(filePath))) {
         yield fs_1.mkdirp(path.dirname(filePath));

@@ -1,5 +1,6 @@
 import { readFile, writeFile, pathExists } from './lib/fs';
-export { readFile, writeFile, pathExists };
+import { stringifyJSON, parseJSON } from './lib/json';
+export { readFile, writeFile, pathExists, stringifyJSON, parseJSON };
 export declare const createStore: <T extends object = any>(filePath: string) => {
     /**
      * if not exists store file, initialize store with init value
