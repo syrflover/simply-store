@@ -17,7 +17,7 @@ describe('writeFile', () => {
 		assert.strictEqual(res0, true);
 	});
 
-	after('end test, remote test file', async () => {
+	after('end test, remove test file', async () => {
 		await fs.promises.unlink('./test/writetest0.json');
 		await fs.promises.unlink('./test/writetest1.json');
 	});
