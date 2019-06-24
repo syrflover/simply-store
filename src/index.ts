@@ -5,7 +5,7 @@ import { stringifyJSON, parseJSON } from './lib/json';
 export { readFile, writeFile, pathExists, stringifyJSON, parseJSON };
 
 interface IStore<T> {
-    initialize: (init?: T) => void;
+    initialize: (init?: T) => Promise<void>;
     read: () => Promise<T>;
     write: (data: T) => Promise<boolean>;
 }
