@@ -5,7 +5,7 @@
     "rules": {
         "variable-name": false,
         "ordered-imports": false,
-        "indent": [true, "tabs", 4],
+        "indent": [true, "spaces", 4],
         "ter-indent": false,
         "jsdoc-format": false
     },
