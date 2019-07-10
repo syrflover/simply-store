@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseJSON = (s) => new Promise((resolve, reject) => {
+exports.parseJSON = (s, reviver) => new Promise((resolve, reject) => {
     try {
         const a = JSON.parse(s);
         resolve(a);
@@ -9,9 +9,9 @@ exports.parseJSON = (s) => new Promise((resolve, reject) => {
         reject(e);
     }
 });
-exports.stringifyJSON = (s) => new Promise((resolve, reject) => {
+exports.stringifyJSON = (s, replacer, space) => new Promise((resolve, reject) => {
     try {
-        const a = JSON.stringify(s);
+        const a = JSON.stringify(s, replacer, space);
         resolve(a);
     }
     catch (e) {
