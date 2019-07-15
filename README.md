@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-npm install syrflover/simply-store
+npm install @syrflover/simple-store
 ```
 
 ## Usage
