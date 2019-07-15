@@ -45,7 +45,7 @@ export const createStore = <T extends object = any>(
         /**
          * if not exists store file, initialize store with init value
          *
-         * @param {object} [init={}] - some json
+         * @param {Any} [init={}] - some json
          */
         initialize: initialize<T>(rp),
         read: read<T>(rp),

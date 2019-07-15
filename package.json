@@ -1,12 +1,22 @@
 {
-    "name": "simply-store",
-    "version": "0.0.8",
+    "name": "@syrflover/simple-store",
+    "version": "0.0.9",
     "main": "build/index.js",
     "types": "build/index.d.ts",
     "license": "MIT",
+    "author": {
+        "name": "syrflover",
+        "email": "syr@meu.works",
+        "url": "https://github.com/syrflover"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/syrflover/command-parser"
+    },
     "scripts": {
         "test": "ts-mocha -p tsconfig.json test/**/*.ts",
-        "build": "rm -rf ./build && tsc -p tsconfig.json"
+        "build": "rm -rf ./build && tsc -p tsconfig.json",
+        "prepublishOnly": "npm run build"
     },
     "devDependencies": {
         "@types/chai": "^4.1.7",

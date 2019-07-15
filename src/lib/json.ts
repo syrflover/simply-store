@@ -4,7 +4,7 @@ export const parseJSON = <T = any>(
 ): Promise<T> =>
     new Promise((resolve, reject) => {
         try {
-            const a = JSON.parse(s);
+            const a = JSON.parse(s, reviver);
             resolve(a);
         } catch (e) {
             reject(e);
