@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/syrflover/simply-store.png?branch=master)](https://travis-ci.org/syrflover/simply-store)
 
-I made it for myself.
-
 ## Installation
 
 ```sh
@@ -13,7 +11,7 @@ npm install syrflover/simply-store
 ## Usage
 
 ```ts
-import { createStore } from 'simply-store';
+import { createStore } from '@syrflover/simple-store';
 
 const store = createStore('./store.json');
 // or use generic
